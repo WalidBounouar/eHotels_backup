@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tab icon-->
+    <link rel="icon" href="media/logo_black.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css"/>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- eHotels CSS -->
+    <link rel="stylesheet" href="eHotels.css"/>
+
+    <!-- Twitter share script -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- eHotels scripts -->
+    <script src="Scripts/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="Scripts/viewrooms.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="Scripts/bootstrap-input-spinner.js"></script>
+
+    <title>eHotels</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg justify-content-between">
+            <!-- COMBAK: Put the link to My list -->
+            <a class="navbar-brand" href="mylist.html">
+                <img src="media/logo_white.png" width="73" height="40" class="d-inline-block align-top" alt="eHotels Logo">
+                eHotels
+            </a>
+            <a href="#"> <span onclick="logout()"><i class="fas fa-sign-out-alt"></i>Logout</span> </a>
+        </nav>
+    </header>
+
+    <div class="body">
+
+        <div class="container-fluid main-container">
+            <div class="row">
+              <div class="col-md-2 sidenav">
+                <nav class="nav flex-column" id="sidenav">
+                    <a class="nav-link sidenav-link" href="">
+                        <img id="sidenav-userpic" src=" " width="150" height="150" class="sidnav-pic img-fluid" alt="Profile Picture">
+                        <p id="sidenav-username"> User Name</p>
+                    </a>
+                    <!-- COMBAK: Put the links to the pages -->
+                    <a id="list-sidenav" class="nav-link sidenav-link" href="mylist.html">My Bookings <i class="fas fa-list-ul"></i></a>
+                    <a id="search-sidenav" class="nav-link sidenav-link" href="search.html">Search Rooms <i class="fas fa-search"></i></a>
+                </nav>
+              </div>
+              <script type="text/javascript">
+                  prepareSidebar();
+              </script>
+              <div class="col-md-10">
+                  <div id="search-content" class="page-content">
+                      <h1 class="page-header">Search Rooms</h1>
+
+                      <form>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputAddress">Minimum Capacity</label>
+                            <select class="form-control" id="minCapacity">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputAddress">Maximum Capacity</label>
+                            <select class="form-control" id="maxCapacity">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option selected>5</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="minRating">Minimum Rating</label>
+                            <input type="number" class="form-control" id="minRating" value="1" min="0" max="5" required>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="maxRating">Maximum Rating</label>
+                            <input type="number" class="form-control" id="maxRating" value="5" min="0" max="5" required>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="minRooms">Minimum Rooms</label>
+                            <input type="number" class="form-control" id="minRooms" value="1" min="0" required>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="maxRooms">Maximum Rooms</label>
+                            <input type="number" class="form-control" id="maxRooms" value="10" min="0" required>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="minPrice">Minimum Price</label>
+                            <input type="number" class="form-control" id="minPrice" value="1" min="0" required>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="maxPrice">Maximum Price</label>
+                            <input type="number" class="form-control" id="maxPrice" value="200" min="0" required>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputTown">Town</label>
+                            <select class="form-control" id="inputTown">
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="inputHotelChain">Hotel Chain</label>
+                            <select class="form-control" id="inputHotelChain">
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <button class="btn btn-outline-secondary btn-block" type="button" onclick="search()"><i class="fas fa-search"></i></button>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <button class="btn btn-outline-secondary btn-block" type="button" onclick="addRoom()">Add Room</button>
+                          </div>
+                        </div>
+                      </form>
+
+                      <div id="list-items-div">
+
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+        </div>
+
+		<script type="text/javascript">
+      loadTownState();
+      $("input[type='number']").inputSpinner();
+		</script>
+
+    </div>
+
+</body>
+</html>

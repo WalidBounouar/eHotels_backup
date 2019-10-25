@@ -1,0 +1,262 @@
+/* Start of general css */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.body {
+    height: 100vh;
+    width: 100;
+}
+
+.page-content {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    background-color: #daa472;
+    border-color: #daa472;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e4760f;
+    border-color: #e4760f;
+    color: white;
+}
+
+.btn-primary:active {
+    background-color: #e4760f;
+    border-color: #e4760f;
+    color: white;
+}
+
+.no-padding {
+    padding: 0 0 0 0;
+}
+
+/* Hide arrow for number fields*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.alert-discrete {
+    padding: 4px 4px 4px 4px;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.pad-lt-15 {
+    padding-left: 15px;
+}
+
+.page-header {
+    border-bottom: 5px solid #e4760f;
+    margin-bottom: 15px;
+}
+
+    text-decoration: inherit;
+    color: inherit;
+    a.nostyle:link {
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.nostyle:hover {
+    text-decoration: none;
+}
+
+.small-bottom-margin {
+    margin-bottom: 5px;
+}
+
+/*.main-container {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}*/
+
+/* End of general css */
+
+/* Start navbar css */
+.navbar {
+    background-color: #daa472;
+    color: white;
+    font-size: 25px;
+}
+
+.navbar > a {
+    color: white;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* End navbar css */
+
+/* Start sidenav css */
+.sidenav {
+    background-color: #daa472;
+    color: white;
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+.sidenav-link {
+    color: white;
+    font-size: 25px;
+}
+
+.sidenav-link:hover {
+    background-color: #e4760f;
+    color: white;
+}
+
+/* COMBAK: Modofy CSS for mobile */
+@media (min-width: 768px) {
+    .sidenav {
+        min-height: 100vh;
+        height: 100;
+    }
+    .sidenav-link {
+        font-size: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .sidenav-link {
+        font-size: 20px;
+    }
+}
+
+#sidenav-username {
+    font-size: 25px;
+    word-break: break-all;
+}
+
+#sidenav-userpic {
+    border-radius: 100px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+}
+/* End sidenav css */
+
+/* Start My List css */
+/* COMBAK: Not certain if this stlying is necessary */
+.tabnav-link {
+    background-color: #daa472;
+    color: white;
+}
+
+/* COMBAK: Apparently !important is bad practice */
+.tabnav-link.active {
+    background-color: #e4760f !important;
+    color: white !important;
+}
+
+.tabnav-link:hover {
+    background-color: #e4760f;
+    color: white;
+}
+
+.listitem-label {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.listitem-overview {
+    display: -webkit-box;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0px;
+}
+
+.btn-listitem {
+    padding: 2px 8px 2px 8px;
+}
+
+.listitem-row {
+    padding-bottom: 5px;
+}
+
+.listitem-container {
+    background-color: #F5F5F5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.listitem-container:hover {
+    background-color: #F5F5FF;
+}
+
+.dropdown-item:hover {
+    background-color: #e4760f;
+    color: white;
+}
+
+.counter-wrapper {
+    min-width: 120px;/
+    overflow: hidden;
+    display: inline-block
+}
+
+.mylist-spinner {
+    font-size: 40px;
+    text-align: center;
+}
+/* End My List css */
+
+/* Start fo search css*/
+
+/* End of search css*/
+
+/* Start showdetails css*/
+.btn-long {
+    width: 100%;
+    font-size: 20px;
+}
+
+.showdetails-container {
+    background-color: #F5F5F5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.color-pellet {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 25px;
+}
+/* End showdetails css*/
+
+/* Start welcome css*/
+.welcome-content {
+    margin: 25px 25px 25px 25px;
+    background-color: #F5F5F5;
+}
+
+.welcome-form-container {
+    padding: 40px;
+}
+
+.welcome-image-holder {
+    display: table-cell;
+    width: auto;
+    background: url("media/welcome_picture.png");
+    background-size: cover;
+    max-height: 80vh;
+}
+
+.welcome-container {
+    min-width: 90%;
+}
+/* End welcome css*/

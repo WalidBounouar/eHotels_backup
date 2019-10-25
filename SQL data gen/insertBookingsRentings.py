@@ -20,11 +20,11 @@ for i in range(20):
 
     isBooking = random.randint(0,1);
     if(isBooking == 1):
-        employeeID = 999; #system
+        employeeID = 1; #system
         checkedIn = "FALSE"
         paid = "FALSE";
     else:
-        employeeID = random.randint(1,6);
+        employeeID = random.randint(2,7);
         checkedIn = "TRUE"
         paid = trueFalse[random.randint(0,1)]
 

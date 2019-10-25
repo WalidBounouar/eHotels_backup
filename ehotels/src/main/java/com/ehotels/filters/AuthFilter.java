@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response.Status;
 
 import com.ehotels.db.AuthenticationManager;
 import com.ehotels.enums.Permission;
+import com.ehotels.enums.UuidVerifResult;
 import com.ehotels.models.AuthErrorModel;
 
 public class AuthFilter implements ContainerRequestFilter {
@@ -37,7 +38,7 @@ public class AuthFilter implements ContainerRequestFilter {
         String sessionUUID = containerRequest.getHeaders().getFirst("authorization");
         if (sessionUUID == null) {
             containerRequest.abortWith(
-                    Response.status(Status.UNAUTHORIZED).header(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"realm\"")
+                    Response.status(Status.FORBIDDEN).header(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"realm\"")
                             .entity(new AuthErrorModel("Page requires login.")).build());
             return;
         }
@@ -46,28 +47,34 @@ public class AuthFilter implements ContainerRequestFilter {
 
         AuthenticationManager manager = new AuthenticationManager();
         
-        boolean validUUID = false;
+        UuidVerifResult verifResult = UuidVerifResult.OTHER;
         String errorMsg = "Invalid Session Token";
         //Different paths (employee, client or common) have different authentication checks
-        //Client operation TODO: change 'true' to the right paths
-        if(false) {
-            validUUID = manager.uuidValid(sessionUUID, Permission.CLIENT);
-            errorMsg = "Invalid Client Session Token";
+        if(path.contains("/client/")) {
+            verifResult = manager.uuidValid(sessionUUID, Permission.CLIENT);
+            if(verifResult == UuidVerifResult.WRONG_PERM) {
+                errorMsg = "Operation reserved for Client";
+            } else {
+                errorMsg = "Invalid Client Session Token";
+            }
             
-        } else if(false) { //Employee operations TODO: change 'true' to the right paths
-            validUUID = manager.uuidValid(sessionUUID, Permission.EMPLOYEE);
-            errorMsg = "Invalid Employee Session Token";
-            
+        } else if(path.contains("/employee/")) { 
+            verifResult = manager.uuidValid(sessionUUID, Permission.EMPLOYEE);
+            if(verifResult == UuidVerifResult.WRONG_PERM) {
+                errorMsg = "Operation reserved for Employee";
+            } else {
+                errorMsg = "Invalid Client Session Token";
+            }            
         } else { //Common operations
-            validUUID = manager.uuidValid(sessionUUID, Permission.COMMON);
+            verifResult = manager.uuidValid(sessionUUID, Permission.COMMON);
             errorMsg = "Invalid Session Token";
         }
 
-        if (!validUUID) {
+        if (verifResult != UuidVerifResult.OK) {
             manager.destroy();
             System.out.println("Rejected login");
             containerRequest.abortWith(
-                    Response.status(Status.UNAUTHORIZED).header(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"realm\"")
+                    Response.status(Status.FORBIDDEN).header(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"realm\"")
                             .entity(new AuthErrorModel(errorMsg)).build());
         }
         

@@ -1,5 +1,5 @@
 DELIMITER //
-CREATE PROCEDURE ehotels.clientregister(IN email varchar(255), IN password varchar(255), IN ssn varchar(6), IN lastname varchar(255), 
+CREATE PROCEDURE ehotels.clientregister(IN email varchar(255), IN password varchar(255), IN ssn varchar(9), IN lastname varchar(255), 
 	IN middlename varchar(255), IN firstname varchar(255), IN streetnumber int, IN streetname varchar(255), IN city varchar(255), 
     IN state varchar(255), IN zip varchar(6), IN registrationdate date)
 

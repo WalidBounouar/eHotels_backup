@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tab icon-->
+    <link rel="icon" href="media/logo_black.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- eHotels CSS -->
+    <link rel="stylesheet" href="eHotels.css"/>
+
+    <!-- eHotels scripts-->
+    <script src="Scripts/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="Scripts/addhotel.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="Scripts/bootstrap-input-spinner.js"></script>
+
+    <title>eHotels</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg justify-content-between">
+            <!-- COMBAK: Put the link to My list -->
+            <a class="navbar-brand" href="mylist.html">
+                <img src="media/logo_white.png" width="73" height="40" class="d-inline-block align-top" alt="eHotels Logo">
+                eHotels
+            </a>
+            <a href="#"> <span onclick="logout()"><i class="fas fa-sign-out-alt"></i>Logout</span> </a>
+        </nav>
+    </header>
+
+    <div class="body">
+
+        <div class="container-fluid main-container">
+            <div class="row">
+              <div class="col-md-2 sidenav">
+                <nav class="nav flex-column" id="sidenav">
+                    <a class="nav-link sidenav-link" href="">
+                        <img id="sidenav-userpic" src=" " width="150" height="150" class="sidnav-pic img-fluid" alt="Profile Picture">
+                        <p id="sidenav-username"> User Name</p>
+                    </a>
+                    <!-- COMBAK: Put the links to the pages -->
+                    <a id="list-sidenav" class="nav-link sidenav-link" href="mylist.html">My Bookings <i class="fas fa-list-ul"></i></a>
+                    <a id="search-sidenav" class="nav-link sidenav-link" href="search.html">Search Rooms <i class="fas fa-search"></i></a>
+                </nav>
+              </div>
+              <script type="text/javascript">
+                  prepareSidebar();
+              </script>
+              <div class="col-md-10">
+                      <h1 class="page-header">Add Hotel</h1>
+
+                      <div class="row">
+                          <div class="col-md">
+                              <form>
+                                  <div class="page-content">
+                                  <div class="form-group row">
+                                      <label for="manager-input" class="col-sm-2 col-form-label">Manager:&nbsp;</label>
+                                      <div class="col-sm-10">
+                                          <select class="form-control" id="manager-input">
+                                            <option>Choose...</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="starRating-input" class="col-sm-2 col-form-label">Star Rating:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" id="starRating-input" value="1" min="0" max="5" required>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="hotelChain-input" class="col-sm-2 col-form-label">Hotel Chain</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control" id="hotelChain-input">
+                                        <option selected>Choose...</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="streetnumber-input" class="col-sm-2 col-form-label">Street Number:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" maxlength="35" class="form-control" id="streetnumber-input" onfocusout="" placeholder="Enter Street Number">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="streetname-input" class="col-sm-2 col-form-label">Street Name:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" maxlength="35" class="form-control" id="streetname-input" onfocusout="" placeholder="Enter Street name">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="city-input" class="col-sm-2 col-form-label">City:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" maxlength="35" class="form-control" id="city-input" onfocusout="" placeholder="Enter City">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="state-input" class="col-sm-2 col-form-label">State:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" maxlength="35" class="form-control" id="state-input" onfocusout="" placeholder="Enter State">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="zip-input" class="col-sm-2 col-form-label">Zip:&nbsp;</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" maxlength="6" class="form-control" id="zip-input" onfocusout="" placeholder="Enter Zip">
+                                    </div>
+                                  </div>
+                              </form>
+                              <br>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <button id="save-changes" type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        getManagers();
+        loadTownState();
+        $("#starRating-input").inputSpinner();
+    </script>
+
+</body>
+</html>

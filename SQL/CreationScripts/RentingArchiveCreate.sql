@@ -12,6 +12,5 @@ CREATE TABLE ehotels.rentingarchive(
     employeefirstname varchar(255) NOT NULL,
 	roomid int NOT NULL,
 	roomnumber int NOT NULL,
-    canceled bool NOT NULL,
     PRIMARY KEY(id)
 );

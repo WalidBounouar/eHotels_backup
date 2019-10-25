@@ -1,6 +1,6 @@
 CREATE TABLE ehotels.employee(
 	id int NOT NULL AUTO_INCREMENT,
-    ssn varchar(6) NOT NULL,
+    ssn varchar(9) NOT NULL,
     lastname varchar(255) NOT NULL,
     middlename varchar(255) NOT NULL,
     firstname varchar(255) NOT NULL,

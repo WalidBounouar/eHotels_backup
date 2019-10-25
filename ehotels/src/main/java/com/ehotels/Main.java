@@ -5,6 +5,7 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import com.ehotels.filters.AuthFilter;
+import com.ehotels.filters.CORSFilter;
 
 import java.io.IOException;
 import java.net.URI;
@@ -26,6 +27,7 @@ public class Main {
         // in com.ehotels package
         final ResourceConfig rc = new ResourceConfig().packages("com.ehotels");
         
+        rc.register(CORSFilter.class);
         rc.register(AuthFilter.class);
 
 
